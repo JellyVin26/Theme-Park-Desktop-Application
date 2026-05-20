@@ -1,0 +1,10 @@
+admin,chan,admin@example.com,password123,012-3456789,admin
+user,chan,user1@example.com,pass123,011-111111123,user
+Sean,Yoong,sean@gmail.com,123,017-6989833,user
+a,b,yes,123,123,user
+ryan,ngiam,yes,123,123,user
+Ryan,Ngiam,ryanngiam10@gmail.com,123,5451154,user
+Nik,Azeem,nikmuhdazeem@gmail.com,yolo2122,0147124342,user
+Nivelan,Renganadan,nivelan05@gmail.com,1234,012,user
+1,1,1,1,1,user
+1,1,a,1,1,admin
