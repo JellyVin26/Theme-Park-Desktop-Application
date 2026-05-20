@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controller.HomeController"
+           style="-fx-background-color: #f0f0f0;">
+
+    <!-- Scrollable Content -->
+    <ScrollPane fitToWidth="true"
+                style="-fx-background-color: transparent;">
+        <content>
+            <VBox alignment="TOP_CENTER"
+                  spacing="20"
+                  style="-fx-padding: 20;">
+
+                <!-- Top Navigation Bar -->
+                <HBox fx:id="userNavbar" visible="true" managed="true"
+                      spacing="20"
+                      alignment="CENTER_RIGHT"
+                      prefHeight="70"
+                      style="-fx-background-color: white; -fx-padding: 0 40 0 0;">
+                    <Label fx:id="welcomeLabel"
+                           text="Welcome, User!"
+                           style="-fx-font-weight: bold;"/>
+                    <Button text="HOME"
+                            style="-fx-background-color: transparent; -fx-text-fill: black;"
+                            onAction="#goHome"/>
+                    <Button text="BOOKING HISTORY"
+                            style="-fx-background-color: transparent; -fx-text-fill: black;"
+                            onAction="#goBookingHistory"/>
+                    <Button text="FAQ"
+                            style="-fx-background-color: transparent; -fx-text-fill: black;"
+                            onAction="#goFAQ"/>
+                    <Button text="OUR RIDES"
+                            style="-fx-background-color: transparent; -fx-text-fill: black;"
+                            onAction="#goOurRides"/>
+                    <Button text="INFOS AND UPDATES"
+                            style="-fx-background-color: transparent; -fx-text-fill: black;"
+                            onAction="#goInfosUpdates"/>
+                    <Button text="BOOK RIDES"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white;"
+                            onAction="#goBookRides"/>
+                </HBox>
+
+                <!-- Center Content -->
+                <VBox alignment="TOP_CENTER"
+                      spacing="25"
+                      style="-fx-padding: 10 0;">
+                    <!-- Image Carousel -->
+                    <StackPane fx:id="carouselPane">
+                        <ImageView fx:id="carouselImage"
+                                   fitWidth="1010"
+                                   fitHeight="400"
+                                   preserveRatio="false">
+                            <image>
+                                <Image url="@../docs/carousel1.jpg"/>
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <HBox alignment="CENTER" spacing="10">
+                        <RadioButton fx:id="dot1"
+                                     toggleGroup="$carouselDots"
+                                     selected="true"
+                                     onAction="#onDot1Click"/>
+                        <RadioButton fx:id="dot2"
+                                     toggleGroup="$carouselDots"
+                                     onAction="#onDot2Click"/>
+                        <RadioButton fx:id="dot3"
+                                     toggleGroup="$carouselDots"
+                                     onAction="#onDot3Click"/>
+                    </HBox>
+
+                    <!-- Rides We Offer -->
+                    <VBox alignment="TOP_CENTER"
+                          spacing="30"
+                          style="-fx-padding: 20;">
+                        <Label text="RIDES WE OFFER"
+                               style="-fx-font-size: 24px;
+                                      -fx-font-weight: bold;"/>
+                        <HBox alignment="CENTER" spacing="40">
+                            <!-- Ride 1 -->
+                            <VBox alignment="CENTER" spacing="10"
+                                  style="-fx-background-color:#ffffff;
+                                         -fx-padding:10;
+                                         -fx-background-radius:10;
+                                         -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.1),8,0,0,1);">
+                                <ImageView fitWidth="250" fitHeight="150">
+                                    <image>
+                                        <Image url="@../docs/ride_placeholder.png"/>
+                                    </image>
+                                </ImageView>
+                                <Label text="Ride 1"
+                                       style="-fx-font-weight:bold; -fx-font-size:16;"/>
+                                <Label text="Thrilling ride experience!"/>
+                            </VBox>
+                            <!-- Ride 2 -->
+                            <VBox alignment="CENTER" spacing="10"
+                                  style="-fx-background-color:#ffffff;
+                                         -fx-padding:10;
+                                         -fx-background-radius:10;
+                                         -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.1),8,0,0,1);">
+                                <ImageView fitWidth="250" fitHeight="150">
+                                    <image>
+                                        <Image url="@../docs/ride_placeholder.png"/>
+                                    </image>
+                                </ImageView>
+                                <Label text="Ride 2"
+                                       style="-fx-font-weight:bold; -fx-font-size:16;"/>
+                                <Label text="Fun for all ages."/>
+                            </VBox>
+                            <!-- Ride 3 -->
+                            <VBox alignment="CENTER" spacing="10"
+                                  style="-fx-background-color:#ffffff;
+                                         -fx-padding:10;
+                                         -fx-background-radius:10;
+                                         -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.1),8,0,0,1);">
+                                <ImageView fitWidth="250" fitHeight="150">
+                                    <image>
+                                        <Image url="@../docs/ride_placeholder.png"/>
+                                    </image>
+                                </ImageView>
+                                <Label text="Ride 3"
+                                       style="-fx-font-weight:bold; -fx-font-size:16;"/>
+                                <Label text="An unforgettable adventure."/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Call to Action -->
+                    <Label text="Book your ticket today for a day full of fun!"
+                           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                    <Button text="BOOK RIDES"
+                            onAction="#goBookRides"
+                            style="-fx-background-color: #A259FF;
+                                   -fx-text-fill: white;
+                                   -fx-font-size: 16px;
+                                   -fx-background-radius: 8;"/>
+                </VBox>
+
+                <!-- Footer -->
+                <HBox alignment="CENTER"
+                      spacing="60"
+                      style="-fx-background-color:#ffffff;
+                             -fx-padding:10;
+                             -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.1),8,0,0,1);">
+                    <Label text="© 2025 Your Park"/>
+                </HBox>
+
+                <!-- Carousel ToggleGroup -->
+                <fx:define>
+                    <ToggleGroup fx:id="carouselDots"/>
+                </fx:define>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- Floating Chat Button -->
+    <Button fx:id="chatButton"
+            text="CHAT WITH US!"
+            onAction="#onChatWithUsClick"
+            style="-fx-background-color: #FFFFFF;
+                   -fx-border-color: black;
+                   -fx-border-radius: 20;
+                   -fx-background-radius: 20;
+                   -fx-padding: 12 24;
+                   -fx-font-weight: bold;
+                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3),8,0,0,2);"
+            translateX="-50"
+            translateY="-50"
+            StackPane.alignment="BOTTOM_RIGHT"/>
+
+</StackPane>

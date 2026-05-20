@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RideAvailabilityController"
+            prefWidth="1024" prefHeight="768">
+
+    <!-- Top Nav Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_RIGHT" prefHeight="70" prefWidth="1024"
+              style="-fx-background-color: white; -fx-padding: 0 40 0 0;">
+            <Button text="HOME" style="-fx-background-color: transparent; -fx-text-fill: black;"
+                    onAction="#goHome" />
+
+            <Button text="BOOKING HISTORY" style="-fx-background-color: transparent; -fx-text-fill: black;"
+                    onAction="#goBookingHistory" />
+            <Button text="FAQ" style="-fx-background-color: transparent; -fx-text-fill: black;"
+                    onAction="#goFAQ" />
+            <Button text="OUR RIDES" style="-fx-background-color: transparent; -fx-text-fill: black;"
+                    onAction="#goOurRides" />
+            <Button text="INFOS &amp; UPDATES" style="-fx-background-color: transparent; -fx-text-fill: black;"
+                    onAction="#goInfosUpdates" />
+            <Button text="BOOK RIDES" style="-fx-background-color: #A259FF; -fx-text-fill: white;"
+                    onAction="#goBookRides" />
+        </HBox>
+    </top>
+
+    <!-- Scrollable Ride List -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color:transparent;">
+            <VBox spacing="40" alignment="TOP_CENTER" style="-fx-padding: 20;">
+
+                <!-- Ride 1 -->
+                <VBox spacing="20" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="150" fitHeight="100">
+                            <image>
+                                <Image url="@../docs/ride_placeholder.png" />
+                            </image>
+                        </ImageView>
+                        <Label text="Ride 1" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="datePickerRide1" promptText="dd/mm/y" prefWidth="150"
+                                    onAction="#onDateSelectedRide1" />
+                    </HBox>
+                    <Label fx:id="availableLabelRide1"
+                           text="Available rides on dd/mm/y"
+                           style="-fx-font-weight: bold; -fx-font-size: 18px;" />
+                    <VBox spacing="10" fx:id="seatsVBoxRide1"
+                          style="-fx-background-color: #E0E0E0; -fx-padding: 15; -fx-background-radius: 5; -fx-border-color: black; -fx-border-radius: 5;">
+                        <!-- Seat info populated dynamically -->
+                    </VBox>
+                    <Button text="BOOK YOURSELF A SEAT" prefWidth="250"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white; -fx-font-weight: bold;"
+                            onAction="#onBookSeatClick" />
+                </VBox>
+
+                <!-- Ride 2 -->
+                <VBox spacing="20" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="150" fitHeight="100">
+                            <image>
+                                <Image url="@../docs/ride_placeholder.png" />
+                            </image>
+                        </ImageView>
+                        <Label text="Ride 2" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="datePickerRide2" promptText="dd/mm/y" prefWidth="150"
+                                    onAction="#onDateSelectedRide2" />
+                    </HBox>
+                    <Label fx:id="availableLabelRide2"
+                           text="Available rides on dd/mm/y"
+                           style="-fx-font-weight: bold; -fx-font-size: 18px;" />
+                    <VBox spacing="10" fx:id="seatsVBoxRide2"
+                          style="-fx-background-color: #E0E0E0; -fx-padding: 15; -fx-background-radius: 5; -fx-border-color: black; -fx-border-radius: 5;">
+                        <!-- Seat info populated dynamically -->
+                    </VBox>
+                    <Button text="BOOK YOURSELF A SEAT" prefWidth="250"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white; -fx-font-weight: bold;"
+                            onAction="#onBookSeatClick" />
+                </VBox>
+
+                <!-- Ride 3 -->
+                <VBox spacing="20" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="150" fitHeight="100">
+                            <image>
+                                <Image url="@../docs/ride_placeholder.png" />
+                            </image>
+                        </ImageView>
+                        <Label text="Ride 3" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="datePickerRide3" promptText="dd/mm/y" prefWidth="150"
+                                    onAction="#onDateSelectedRide3" />
+                    </HBox>
+                    <Label fx:id="availableLabelRide3"
+                           text="Available rides on dd/mm/y"
+                           style="-fx-font-weight: bold; -fx-font-size: 18px;" />
+                    <VBox spacing="10" fx:id="seatsVBoxRide3"
+                          style="-fx-background-color: #E0E0E0; -fx-padding: 15; -fx-background-radius: 5; -fx-border-color: black; -fx-border-radius: 5;">
+                        <!-- Seat info populated dynamically -->
+                    </VBox>
+                    <Button text="BOOK YOURSELF A SEAT" prefWidth="250"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white; -fx-font-weight: bold;"
+                            onAction="#onBookSeatClick" />
+                </VBox>
+
+                <!-- Ride 4 -->
+                <VBox spacing="20" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="150" fitHeight="100">
+                            <image>
+                                <Image url="@../docs/ride_placeholder.png" />
+                            </image>
+                        </ImageView>
+                        <Label text="Ride 4" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="datePickerRide4" promptText="dd/mm/y" prefWidth="150"
+                                    onAction="#onDateSelectedRide4" />
+                    </HBox>
+                    <Label fx:id="availableLabelRide4"
+                           text="Available rides on dd/mm/y"
+                           style="-fx-font-weight: bold; -fx-font-size: 18px;" />
+                    <VBox spacing="10" fx:id="seatsVBoxRide4"
+                          style="-fx-background-color: #E0E0E0; -fx-padding: 15; -fx-background-radius: 5; -fx-border-color: black; -fx-border-radius: 5;">
+                        <!-- Seat info populated dynamically -->
+                    </VBox>
+                    <Button text="BOOK YOURSELF A SEAT" prefWidth="250"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white; -fx-font-weight: bold;"
+                            onAction="#onBookSeatClick" />
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

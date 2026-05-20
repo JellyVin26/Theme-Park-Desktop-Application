@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.AdminBookRidesController"
+            prefWidth="1024.0" prefHeight="768.0"
+            style="-fx-background-color: #f0f0f0;">
+
+    <!-- Top navigation bar - Same as AdminHome.fxml -->
+    <top>
+        <HBox alignment="CENTER_RIGHT"
+              spacing="20"
+              style="-fx-background-color: #ffffff;
+                     -fx-padding: 0 40 0 0;
+                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Button text="HOME" onAction="#handleHome" fx:id="homeButton"/>
+            <Button text="FAQ" onAction="#handleFaq" fx:id="faqButton"/>
+            <Button text="View Booking Histories"
+                    onAction="#handleViewBookingHistories"
+                    fx:id="viewBookingHistoriesButton"/>
+            <Button fx:id="adminBookRidesButton" text="BOOK RIDES" onAction="#handleAdminBookRides" />
+        </HBox>
+    </top>
+
+    <!-- Main content area -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+
+                <!-- Page Title -->
+                <Label text="Admin Book Rides" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+                <!-- Booking Form -->
+                <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: white; -fx-background-radius: 10;">
+
+                    <!-- Ride Selection -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Select Ride:" minWidth="120"/>
+                        <ComboBox fx:id="rideComboBox" prefWidth="200"/>
+                    </HBox>
+
+                    <!-- Date Selection -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Select Date:" minWidth="120"/>
+                        <DatePicker fx:id="datePicker" prefWidth="200"/>
+                    </HBox>
+
+                    <!-- Time Selection -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Select Time:" minWidth="120"/>
+                        <ComboBox fx:id="timeComboBox" prefWidth="200"/>
+                    </HBox>
+
+                    <!-- User Selection -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Select User:" minWidth="120"/>
+                        <ComboBox fx:id="userComboBox" prefWidth="200"/>
+                    </HBox>
+
+                    <!-- Passenger Details -->
+                    <Label text="Passenger Details:" style="-fx-font-weight: bold;"/>
+
+                    <HBox spacing="20">
+                        <VBox spacing="5">
+                            <Label text="Adults:"/>
+                            <TextField fx:id="adultField" prefWidth="80"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Senior/OKU:"/>
+                            <TextField fx:id="seniorField" prefWidth="80"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Students:"/>
+                            <TextField fx:id="studentField" prefWidth="80"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Family Packages:"/>
+                            <TextField fx:id="familyField" prefWidth="80"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button fx:id="checkAvailabilityButton" text="Check Availability"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                        <Button fx:id="bookButton" text="Book Ride for User"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Footer - Same as AdminHome.fxml -->
+    <bottom>
+        <HBox alignment="CENTER"
+              spacing="80"
+              style="-fx-background-color: #ffffff;
+                     -fx-padding: 10;
+                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 1);">
+            <Label text="© 2025 Your Company" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

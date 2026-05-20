@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ViewBookingHistoryController"
+            prefWidth="1024.0" prefHeight="768.0">
+
+    <!-- Admin & User Navbars -->
+    <top>
+        <StackPane>
+            <HBox fx:id="adminNavbar" visible="false" managed="false"
+                  alignment="CENTER_RIGHT" spacing="20"
+                  style="-fx-background-color: #ffffff; -fx-padding: 0 40 0 0;
+                         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                <Button text="HOME" onAction="#handleHome"/>
+                <Button text="FAQ"  onAction="#handleFaq"/>
+                <Button text="View Booking Histories"/>
+                <Button text="BOOK RIDES" onAction="#handleAdminBookRides"/>
+            </HBox>
+
+            <HBox fx:id="userNavbar" visible="true" managed="true"
+                  spacing="20"
+                  alignment="CENTER_RIGHT"
+                  prefHeight="70"
+                  style="-fx-background-color: white; -fx-padding: 0 40 0 0;">
+                <Label fx:id="welcomeLabel"
+                       text="Welcome, User!"
+                       style="-fx-font-weight: bold;"/>
+                <Button text="HOME"
+                        style="-fx-background-color: transparent; -fx-text-fill: black;"
+                        onAction="#goHome"/>
+                <Button text="BOOKING HISTORY"
+                        style="-fx-background-color: transparent; -fx-text-fill: black;"
+                        onAction="#goBookingHistory"/>
+                <Button text="FAQ"
+                        style="-fx-background-color: transparent; -fx-text-fill: black;"
+                        onAction="#goFAQ"/>
+                <Button text="OUR RIDES"
+                        style="-fx-background-color: transparent; -fx-text-fill: black;"
+                        onAction="#goOurRides"/>
+                <Button text="INFOS AND UPDATES"
+                        style="-fx-background-color: transparent; -fx-text-fill: black;"
+                        onAction="#goInfosUpdates"/>
+                <Button text="BOOK RIDES"
+                        style="-fx-background-color: #A259FF; -fx-text-fill: white;"
+                        onAction="#goBookRides"/>
+            </HBox>
+        </StackPane>
+    </top>
+
+    <!-- Main content -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="20" alignment="CENTER">
+
+                <!-- Optional User Info Box -->
+                <VBox fx:id="userInfoBox" visible="false" managed="false"
+                      alignment="CENTER" spacing="8"
+                      style="-fx-background-color: #f4f4f4; -fx-padding: 20;
+                             -fx-border-color: #dcdcdc; -fx-border-radius: 10;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);">
+                    <Label text="My Info"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #4A4A4A;"/>
+                    <Label fx:id="nameLabel"  style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                    <Label fx:id="emailLabel" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+                    <Label fx:id="phoneLabel" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+                </VBox>
+
+                <!-- Edit / Save Buttons -->
+                <HBox fx:id="editSaveButton" spacing="10" visible="true"
+                      alignment="CENTER_RIGHT"
+                      maxWidth="572"
+                      style="-fx-padding: 0 10 0 10;">
+                    <Button fx:id="editButton"
+                            text="Edit"
+                            onAction="#handleEditBooking"
+                            style="-fx-background-color: #A259FF; -fx-text-fill: white;"/>
+                    <Button fx:id="saveButton"
+                            text="Save"
+                            onAction="#handleSaveBooking"
+                            style="-fx-background-color: #28a745; -fx-text-fill: white;"
+                            disable="true"/>
+                </HBox>
+
+                <!-- Admin Table -->
+                <TableView fx:id="adminTable" visible="false" maxWidth="572">
+                    <columns>
+                        <TableColumn fx:id="emailCol"    text="Email"  prefWidth="150"/>
+                        <TableColumn fx:id="rideNameCol" text="Ride"   prefWidth="120"/>
+                        <TableColumn fx:id="dateCol"     text="Date"   prefWidth="100"/>
+                        <TableColumn fx:id="timeCol"     text="Time"   prefWidth="100"/>
+                        <TableColumn fx:id="statusCol"   text="Status" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <!-- User Card Container -->
+                <FlowPane fx:id="cardContainer"
+                          hgap="20" vgap="20"
+                          style="-fx-background-color: transparent;">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                </FlowPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

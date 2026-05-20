@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.AdminHomeController"
+            prefWidth="1024.0" prefHeight="768.0"
+            style="-fx-background-color: #f0f0f0;">
+    <Label fx:id="welcomeLabel" text="Welcome, Admin!" />
+
+    <!-- Top navigation bar -->
+    <top>
+        <HBox alignment="CENTER_RIGHT"
+              spacing="20"
+              style="-fx-background-color: #ffffff;
+                     -fx-padding: 0 40 0 0;
+                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Button text="HOME" onAction="#handleHome"  fx:id="homeButton"/>
+            <Button text="FAQ"  onAction="#handleFaq"   fx:id="faqButton"/>
+            <Button text="View Booking Histories"
+                    onAction="#handleViewBookingHistories"
+                    fx:id="viewBookingHistoriesButton"/>
+            <Button fx:id="adminBookRidesButton" text="BOOK RIDES" onAction="#handleAdminBookRides" />
+
+            <!-- add more nav buttons here as needed -->
+        </HBox>
+    </top>
+
+    <!-- Main scrollable area -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background-color: transparent;">
+            <VBox alignment="TOP_CENTER"
+                  spacing="30"
+                  style="-fx-padding: 20;">
+                <!-- Carousel placeholder -->
+                <Label text="Welcome Admin" />
+
+                <!-- Helpful links or other content -->
+                <HBox alignment="CENTER"
+                      spacing="80">
+                    <VBox spacing="8">
+                        <Label style="-fx-font-weight: bold;" text="Helpful Links"/>
+                        <Label text="About Us"/>
+                        <Label text="Contact"/>
+                        <Label text="Terms of Service"/>
+                    </VBox>
+                    <VBox spacing="8">
+                        <Label style="-fx-font-weight: bold;" text="Opening Hours"/>
+                        <Label text="Mon–Fri: 9AM–6PM"/>
+                        <Label text="Sat–Sun: 10AM–8PM"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Footer or additional actions -->
+    <bottom>
+        <HBox alignment="CENTER"
+              spacing="80"
+              style="-fx-background-color: #ffffff;
+                     -fx-padding: 10;
+                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 1);">
+            <Label text="© 2025 Your Company" />
+            <!-- add footer links or buttons here -->
+        </HBox>
+    </bottom>
+
+</BorderPane>

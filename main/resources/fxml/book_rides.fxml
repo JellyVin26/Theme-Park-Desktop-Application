@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns="http://javafx.com/javafx/8"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controller.BookRidesController"
+           prefWidth="1024" prefHeight="768">
+
+    <children>
+        <!-- Background Image -->
+        <ImageView fitWidth="1024" fitHeight="768" preserveRatio="false">
+            <image>
+                <Image url="@../docs/background.jpg"/>
+            </image>
+        </ImageView>
+
+        <!-- Blue Tint Overlay -->
+        <Rectangle width="1024" height="768" fill="#0000FF40"/>
+
+        <!-- Main AnchorPane pinned to top-left of the StackPane -->
+        <AnchorPane StackPane.alignment="TOP_LEFT"
+                    prefWidth="1024" prefHeight="768">
+            <children>
+
+                <!-- Top Nav Bar -->
+                <HBox spacing="20"
+                      alignment="CENTER_RIGHT"
+                      prefHeight="70"
+                      style="-fx-background-color: white; -fx-padding: 0 40 0 0;"
+                      AnchorPane.topAnchor="0"
+                      AnchorPane.leftAnchor="0"
+                      AnchorPane.rightAnchor="0">
+                    <children>
+                        <Button text="HOME"
+                                style="-fx-background-color: transparent; -fx-text-fill: black;"
+                                onAction="#goHome"/>
+
+                        <Button text="BOOKING HISTORY"
+                                style="-fx-background-color: transparent; -fx-text-fill: black;"
+                                onAction="#goBookingHistory"/>
+                        <Button text="FAQ"
+                                style="-fx-background-color: transparent; -fx-text-fill: black;"
+                                onAction="#goFAQ"/>
+                        <Button text="OUR RIDES"
+                                style="-fx-background-color: transparent; -fx-text-fill: black;"
+                                onAction="#goOurRides"/>
+                        <Button text="INFOS AND UPDATES"
+                                style="-fx-background-color: transparent; -fx-text-fill: black;"
+                                onAction="#goInfosUpdates"/>
+                        <Button text="BOOK RIDES"
+                                style="-fx-background-color: #A259FF; -fx-text-fill: white;"
+                                onAction="#goBookRides"/>
+                    </children>
+                </HBox>
+
+                <!-- Booking Form -->
+                <VBox spacing="15"
+                      prefWidth="350"
+                      style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25;"
+                      AnchorPane.topAnchor="150"
+                      AnchorPane.leftAnchor="80">
+                    <children>
+                        <Label text="Choose Ride"
+                               style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+                        <ComboBox fx:id="rideDropdown" prefWidth="250">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Ride 1"/>
+                                    <String fx:value="Ride 2"/>
+                                    <String fx:value="Ride 3"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+
+                        <Label text="Date"/>
+                        <DatePicker fx:id="datePicker" promptText="dd/mm/y" prefWidth="250"/>
+
+                        <Label text="Time"/>
+                        <ComboBox fx:id="timeDropdown" prefWidth="250">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="10:00am - 12:00pm"/>
+                                    <String fx:value="1:00pm - 3:00pm"/>
+                                    <String fx:value="4:00pm - 6:00pm"/>
+                                    <String fx:value="7:00pm - 9:00pm"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+
+                        <GridPane hgap="15" vgap="10">
+                            <children>
+                                <Label text="Adult" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <Label text="Senior/Oku" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                <TextField fx:id="adultField" promptText="-/1" prefWidth="100"
+                                           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="seniorField" promptText="-/1" prefWidth="100"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                                <Label text="Student"       GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <Label text="FamilyPackage" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField fx:id="studentField" promptText="-/1" prefWidth="100"
+                                           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                <TextField fx:id="familyField"  promptText="-/1" prefWidth="100"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                            </children>
+                        </GridPane>
+
+                        <Button text="VIEW RIDE AVAILABILITY" prefWidth="250"
+                                style="-fx-background-color: #468DD2; -fx-text-fill: white;"
+                                onAction="#onViewRideAvailabilityClick"/>
+                        <Button text="BOOK" prefWidth="250"
+                                style="-fx-background-color: #468DD2; -fx-text-fill: white;"
+                                onAction="#onBookClick"/>
+                    </children>
+                </VBox>
+
+                <!-- Right‐hand text block -->
+                <VBox spacing="15"
+                      AnchorPane.topAnchor="170"
+                      AnchorPane.leftAnchor="500">
+                    <children>
+                        <Label text="BOOK YOUR"
+                               style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="RIDES"
+                               style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+                               wrapText="true" maxWidth="400"
+                               style="-fx-text-fill: white; -fx-font-size: 14;"/>
+                    </children>
+                </VBox>
+
+                <!-- Footer -->
+                <HBox spacing="60"
+                      alignment="CENTER"
+                      style="-fx-background-color: white;"
+                      AnchorPane.bottomAnchor="0"
+                      AnchorPane.leftAnchor="0"
+                      AnchorPane.rightAnchor="0"
+                      prefHeight="120">
+                    <children>
+                        <VBox alignment="CENTER_LEFT" spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            <ImageView fitWidth="120" fitHeight="70">
+                                <image><Image url="@../docs/malaysia_book_logo.png"/></image>
+                            </ImageView>
+                        </VBox>
+
+                        <HBox alignment="CENTER" spacing="80">
+                            <children>
+                                <VBox alignment="CENTER_LEFT" spacing="8">
+                                    <Label text="Helpful Links"
+                                           style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                </VBox>
+                                <VBox alignment="CENTER_LEFT" spacing="8">
+                                    <Label text="Opening Hours"
+                                           style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                    <Label text="BlablaBlablaBlablaBlabla"/>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox alignment="CENTER_RIGHT" spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                            <Label text="Find Us"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                            <HBox spacing="15">
+                                <children>
+                                    <ImageView fitWidth="28" fitHeight="28">
+                                        <image><Image url="@../docs/pin.jpg"/></image>
+                                    </ImageView>
+                                    <ImageView fitWidth="28" fitHeight="28">
+                                        <image><Image url="@../docs/car.jpg"/></image>
+                                    </ImageView>
+                                </children>
+                            </HBox>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <!-- Floating Chat Button -->
+                <Button text="CHAT WITH US!"
+                        onAction="#onChatWithUsClick"
+                        style="-fx-background-color: white; -fx-text-fill: black;
+                       -fx-border-color: black; -fx-border-radius: 20;
+                       -fx-background-radius: 20; -fx-padding: 12 24;
+                       -fx-font-weight: bold;
+                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8,0,0,2);"
+                        AnchorPane.bottomAnchor="140"
+                        AnchorPane.rightAnchor="30"/>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
