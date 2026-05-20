@@ -32,7 +32,7 @@ public class ChatbotController {
         var dao = new ChatbotDAO();
         var doc = dao.loadKnowledgeBase();
 
-        String apiKey = "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";
+        String apiKey = "OPENAI API KEY";
 
         chatbot = new ChatbotService(doc, apiKey);
         sendButton.setOnAction(e -> onSend());
